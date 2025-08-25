@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import './App.css';
+import Button from './components/Button/Button';
+import CardButton from './components/CardButton/CardButton';
+import JournalItem from './components/JournalItem/JournalItem';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const data = [
+		{
+			title: 'Подготовка к обновлению курсов',
+			text: 'Горные походы открывают удвительные природные ландшафты',
+			date: new Date()
+		},
+		{
+			title: 'Поход в горы',
+			text: 'Думал, что очень много времени',
+			date: new Date()
+		}
+	];
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+	return (
+		<div>
+			<h1>Заголовок</h1>
+			<p>Какой-то текст</p>
+			<Button/>
+
+			<CardButton>
+				<JournalItem
+					title={data[0].title}
+					text={data[0].text}
+					date={data[0].date}
+				/>
+			</CardButton>
+      
+			<CardButton>
+				<JournalItem
+					title={data[1].title}
+					text={data[1].text}
+					date={data[1].date}
+				/>
+			</CardButton>
+		</div>
+	);
 }
 
-export default App
+export default App;
